@@ -37,16 +37,16 @@ export type SiteDataTypes = {
 	informationContact: {};
 };
 
+type GalleryType = {
+	image: {
+		url: string;
+	}
+}
+
 export type ProjectTypes = {
 	client?: string;
 	description?: {};
-	gallery?: [
-		{
-			image?: {
-				url?: string;
-			}
-		}
-	];
+	gallery: GalleryType[];
 	slug?: string;
 	thumbnailImage?: {
 		url?: string;

@@ -64,8 +64,15 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
 	strong,
-	b {
-		font-weight: 900;
+	b,
+	.bold {
+		font-weight: 400;
+		font-family: var(--font-apercu-regular);
+	}
+
+	.light {
+		font-weight: 300;
+		font-family: var(--font-apercu-light);
 	}
 
 	em {
@@ -222,6 +229,12 @@ export const GlobalStyles = createGlobalStyle`
 		{
 			font-size: ${theme.sizeMobile.body};
 			line-height: 0.938rem;
+		}
+	}
+
+	.content {
+		& > * {
+			font-family: var(--font-apercu-light);
 		}
 	}
 

@@ -29,8 +29,6 @@ const HeaderInner = styled.div`
 const LinkTag = styled.a``;
 
 const Header = () => {
-	console.log('options', options);
-	
 	const siteTitle = options?.siteTitle || '';
 
 	return (

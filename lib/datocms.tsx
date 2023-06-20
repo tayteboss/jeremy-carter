@@ -44,5 +44,5 @@ export async function getProject(slug: string) {
 		variables: { slug },
 	});
 
-	return data;
+	return data?.allProjects[0];
 }
