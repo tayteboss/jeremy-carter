@@ -1,38 +1,41 @@
-import Head from 'next/head';
-import { renderMetaTags } from 'react-datocms';
 import styled from 'styled-components';
-import { getPage } from '../lib/datocms';
+import { getAllProjects, getSiteData } from '../lib/datocms';
 import { NextSeo } from 'next-seo';
+import { ProjectTypes, SiteDataTypes } from '../shared/types/types';
+import ProjectList from '../components/blocks/ProjectList';
 
 const PageWrapper = styled.div``;
 
 type Props = {
-	data: {}
+	projects: ProjectTypes[];
+	siteData: SiteDataTypes;
 };
 
 const Page = (props: Props) => {
 	const {
-		data
+		projects,
+		siteData
 	} = props;
 
 	return (
 	<PageWrapper>
 		<NextSeo
-			title="Boiler"
-			description="Boiler Plate"
+			title="Jeremy Carter"
+			description={siteData?.seoDescription || ''}
 		/>
-		Home
+		<ProjectList data={projects} />
 	</PageWrapper>
 	);
 };
 
 export async function getStaticProps() {
-	// const data = await getPage('home');
-	const data = false;
+	const projects = await getAllProjects();
+	const siteData = await getSiteData();
 
 	return {
 		props: {
-			data,
+			projects,
+			siteData
 		},
 	};
 }

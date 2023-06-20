@@ -1,12 +1,11 @@
 import { GraphQLClient } from 'graphql-request';
-import ALL_PAGES_QUERY from './queries/allPages';
-import PAGE_QUERY from './queries/page';
+import { ALL_PROJECTS_QUERY, SINGLE_PROJECT_QUERY } from './queries/page';
 import SITE_QUERY from './queries/siteData';
 
 type Request = {
-	query: string;
-	variables: {};
-	preview: boolean;
+	query?: string;
+	variables?: {};
+	preview?: boolean;
 };
 
 const request = ({ query, variables, preview }: Request) => {
@@ -28,25 +27,22 @@ export const getSiteData = async () => {
 		preview: false
 	});
 
-	return data;
+	return data?.siteInformation;
 };
 
-export const getAllPages = async (siteId: number) => {
+export const getAllProjects = async () => {
 	const data = await request({
-		query: ALL_PAGES_QUERY,
-		variables: { siteId },
-		preview: false
+		query: ALL_PROJECTS_QUERY
+	});
+
+	return data?.allProjects;
+};
+
+export async function getProject(slug: string) {
+	const data = await request({
+		query: SINGLE_PROJECT_QUERY,
+		variables: { slug },
 	});
 
 	return data;
-};
-
-export const getPage = async (pageSlug: string, preview: boolean) => {
-	const data = await request({
-		query: PAGE_QUERY,
-		variables: { pageSlug },
-		preview,
-	});
-
-	return data;
-};
+}

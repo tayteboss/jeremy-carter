@@ -9,11 +9,14 @@ type Props = {
 const Grid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(12, minmax(0, 1fr));
-	grid-column-gap: ${pxToRem(16)};
+	grid-column-gap: ${pxToRem(20)};
+	grid-row-gap: ${pxToRem(20)};
 	align-items: start;
 
-	@media ${(props) => props.theme.mediaBreakpoints.tabletPortrait} {
-		grid-template-columns: repeat(6, minmax(0, 1fr));
+	@media ${(props) => props.theme.mediaBreakpoints.mobile} {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		grid-column-gap: ${pxToRem(10)};
+		grid-row-gap: ${pxToRem(10)};
 	}
 `;
 

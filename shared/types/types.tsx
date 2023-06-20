@@ -29,3 +29,27 @@ export type Transitions = {
 		}
 	}
 };
+
+export type SiteDataTypes = {
+	seoDescription: string;
+	seoTitle: string;
+	password: string;
+	informationContact: {};
+};
+
+export type ProjectTypes = {
+	client?: string;
+	description?: {};
+	gallery?: [
+		{
+			image?: {
+				url?: string;
+			}
+		}
+	];
+	slug?: string;
+	thumbnailImage?: {
+		url?: string;
+	};
+	title?: string;
+}

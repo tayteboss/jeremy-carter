@@ -18,16 +18,12 @@ export const linkFragment = `
 	linkTitle
 `;
 
-export const mediaFragment = `
-	useVideo
+export const imageFragment = `
 	image {
 		url
 		alt
 		height
 		width
 		alt
-	}
-	video {
-		url
 	}
 `;

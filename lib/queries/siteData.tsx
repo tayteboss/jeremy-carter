@@ -1,7 +1,14 @@
+import { richTextFragment } from "./fragments";
+
 const SITE_DATA_QUERY: string = `
-	query Query($pageSlug: String) {
-		page(filter: {pageSlug: {eq: $pageSlug}}) {
-			
+	query Query {
+		siteInformation {
+			seoDescription
+			password
+			informationContact {
+				${richTextFragment}
+			}
+			siteTitle
 		}
 	}
 `;
