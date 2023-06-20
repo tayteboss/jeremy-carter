@@ -41,17 +41,6 @@ export default class CustomDocument extends Document {
 					<meta name="msapplication-TileColor" content="#da532c" />
 					<meta name="theme-color" content="#ffffff" />
 				</Head>
-				<NextSeo
-					openGraph={{
-						images: [
-							{
-								url: '/file-path.jpg',
-								width: 1200,
-								height: 630,
-							},
-						],
-					}}
-				/>
 				<body>
 					<Main />
 					<NextScript />

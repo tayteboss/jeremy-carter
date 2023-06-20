@@ -3,6 +3,7 @@ import { richTextFragment } from "./fragments";
 export const ALL_PROJECTS_QUERY: string = `
 	query Query {
 		allProjects(first: 100) {
+			id
 			slug
 			title
 			thumbnailImage {

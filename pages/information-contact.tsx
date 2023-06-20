@@ -4,6 +4,7 @@ import LayoutWrapper from '../components/common/LayoutWrapper';
 import LayoutGrid from '../components/common/LayoutGrid';
 import RichText from '../components/common/RichText';
 import { SiteDataTypes } from '../shared/types/types';
+import { NextSeo } from 'next-seo';
 
 const PageWrapper = styled.div``;
 
@@ -32,6 +33,10 @@ const Page = (props: Props) => {
 
 	return (
 		<PageWrapper>
+			<NextSeo
+				title="Jeremy Carter - Information / Contact"
+				description={siteData?.seoDescription || ''}
+			/>
 			<LayoutWrapper>
 				<LayoutGrid>
 					<ContentWrapper>

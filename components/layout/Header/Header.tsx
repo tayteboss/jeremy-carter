@@ -5,7 +5,10 @@ import pxToRem from '../../../utils/pxToRem';
 
 const options = require('../../../json/siteData.json');
 
-const HeaderWrapper = styled.header``;
+const HeaderWrapper = styled.header`
+	position: relative;
+	z-index: 100;
+`;
 
 const HeaderInner = styled.div`
 	display: flex;

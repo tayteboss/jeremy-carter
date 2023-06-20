@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "next-sitemap.js", "pages/_document.js"  ],
+, "next-sitemap.js", "pages/_document.js", "components/elements/Cursor/Cursor.js", "components/elements/Cursor/index.js"  ],
   "exclude": [
     "node_modules"
   ]

@@ -6,22 +6,32 @@ import LayoutWrapper from '../../components/common/LayoutWrapper';
 import LayoutGrid from '../../components/common/LayoutGrid';
 import ProjectContent from '../../components/blocks/ProjectContent';
 import ProjectGallery from '../../components/blocks/ProjectGallery';
+import RelatedProjectsCover from '../../components/blocks/RelatedProjectsCover';
 
 const PageWrapper = styled.div``;
 
 type Props = {
 	data: ProjectTypes;
 	siteData: SiteDataTypes;
+	projects: ProjectTypes[];
+	nextProject: ProjectTypes;
+	previousProject: ProjectTypes;
 };
 
 const Page = (props: Props) => {
 	const {
 		data,
 		siteData,
+		projects,
+		nextProject,
+		previousProject
 	} = props;
 
 	console.log('data', data);
 	console.log('siteData', siteData);
+	console.log('projects', projects);
+	console.log('nextProject', nextProject);
+	console.log('previousProject', previousProject);
 
 	return (
 	<PageWrapper>
@@ -40,6 +50,10 @@ const Page = (props: Props) => {
 					data={data}
 				/>
 			</LayoutGrid>
+			<RelatedProjectsCover
+				nextProjectSlug={nextProject.slug}
+				previousProjectSlug={previousProject.slug}
+			/>
 		</LayoutWrapper>
 	</PageWrapper>
 	);
@@ -58,12 +72,25 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }: any) {
 	const data = await getProject(params.slug[0]);
+	const projects = await getAllProjects();;
 	const siteData = await getSiteData();
+	let nextProject = false;
+	let previousProject = false;
+
+	projects.forEach((item: ProjectTypes, index: number) => {
+		if (item.slug === data?.slug) {
+			nextProject = projects[(index + 1) % projects.length];
+			previousProject = projects[(index - 1 + projects.length) % projects.length];
+		}
+	});
 
 	return {
 		props: {
 			data,
-			siteData
+			siteData,
+			projects,
+			nextProject,
+			previousProject
 		},
 	};
 }
