@@ -5,9 +5,8 @@ export const GlobalStyles = createGlobalStyle`
 	:root {
 		--colour-white: ${theme.colours.white};
 		--colour-black: ${theme.colours.black};
-		--colour-system-white-50: ${theme.colours.systemWhite.grey50};
-		--colour-system-black-50: ${theme.colours.systemBlack.grey50};
-		--font-default: ${theme.fonts.default};
+		--font-apercu-regular: ${theme.fonts.apercuRegular};
+		--font-apercu-light: ${theme.fonts.apercuLight};
 		--transition-speed-default: ${theme.transitionSpeed.default};
 		--transition-speed-fast: ${theme.transitionSpeed.fast};
 		--transition-speed-extra-fast: ${theme.transitionSpeed.extraFast};
@@ -32,8 +31,8 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
 	::selection {
-		background-color: red;
-		color: black;
+		background-color: black;
+		color: white;
 	}
 
 	html {
@@ -60,9 +59,8 @@ export const GlobalStyles = createGlobalStyle`
 	button,
 	label,
 	body {
-		font-family: var(--font-default);
+		font-family: var(--font-apercu-regular);
 		color: var(--colour-black);
-		line-height: 1.4;
 	}
 
 	strong,
@@ -75,7 +73,7 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
 	a {
-		text-decoration: underline;
+		text-decoration: none;
 		color: var(--colour-black);
 		transition: all var(--transition-speed-default) var(--transition-ease);
 	}
@@ -87,68 +85,112 @@ export const GlobalStyles = createGlobalStyle`
 	h1,
 	.type-h1 {
 		font-size: ${theme.size.h1};
-		line-height: 2.813rem;
+		line-height: 1.5rem;
+
+		@media ${theme.mediaBreakpoints.tabletLandscape} {
+			font-size: ${theme.sizeTabletLandscape.h1};
+			line-height: 1.125rem;
+		}
+
+		@media ${theme.mediaBreakpoints.tabletMedium} {
+			font-size: ${theme.sizeTabletMedium.h1};
+			line-height: 1rem;
+		}
 
 		@media ${theme.mediaBreakpoints.tabletPortrait}
 		{
-			font-size: ${theme.sizeTablet.h1};
+			font-size: ${theme.sizeTabletPortrait.h1};
+			line-height: 0.938rem;
 		}
 
 		@media ${theme.mediaBreakpoints.mobile}
 		{
 			font-size: ${theme.sizeMobile.h1};
-			line-height: 2.125rem;
+			line-height: 0.938rem;
 		}
 	}
 
 	h2,
 	.type-h2 {
 		font-size: ${theme.size.h2};
-		line-height: 2.25rem;
+		line-height: 1.5rem;
+
+		@media ${theme.mediaBreakpoints.tabletLandscape} {
+			font-size: ${theme.sizeTabletLandscape.h2};
+			line-height: 1.125rem;
+		}
+
+		@media ${theme.mediaBreakpoints.tabletMedium} {
+			font-size: ${theme.sizeTabletMedium.h2};
+			line-height: 1rem;
+		}
 
 		@media ${theme.mediaBreakpoints.tabletPortrait}
 		{
-			font-size: ${theme.sizeTablet.h2};
+			font-size: ${theme.sizeTabletPortrait.h2};
+			line-height: 0.938rem;
 		}
 
 		@media ${theme.mediaBreakpoints.mobile}
 		{
 			font-size: ${theme.sizeMobile.h2};
-			line-height: 1.75rem;
+			line-height: 0.938rem;
 		}
 	}
 
 	h3,
 	.type-h3 {
 		font-size: ${theme.size.h3};
-		line-height: 1.938rem;
+		line-height: 1.5rem;
+
+		@media ${theme.mediaBreakpoints.tabletLandscape} {
+			font-size: ${theme.sizeTabletLandscape.h3};
+			line-height: 1.125rem;
+		}
+
+		@media ${theme.mediaBreakpoints.tabletMedium} {
+			font-size: ${theme.sizeTabletMedium.h3};
+			line-height: 1rem;
+		}
 
 		@media ${theme.mediaBreakpoints.tabletPortrait}
 		{
-			font-size: ${theme.sizeTablet.h3};
+			font-size: ${theme.sizeTabletPortrait.h3};
+			line-height: 0.938rem;
 		}
 
 		@media ${theme.mediaBreakpoints.mobile}
 		{
 			font-size: ${theme.sizeMobile.h3};
-			line-height: 1.563rem;
+			line-height: 0.938rem;
 		}
 	}
 
 	h4,
 	.type-h4 {
 		font-size: ${theme.size.h4};
-		line-height: 1.563rem;
+		line-height: 1.5rem;
+
+		@media ${theme.mediaBreakpoints.tabletLandscape} {
+			font-size: ${theme.sizeTabletLandscape.h4};
+			line-height: 1.125rem;
+		}
+
+		@media ${theme.mediaBreakpoints.tabletMedium} {
+			font-size: ${theme.sizeTabletMedium.h4};
+			line-height: 1rem;
+		}
 
 		@media ${theme.mediaBreakpoints.tabletPortrait}
 		{
-			font-size: ${theme.sizeTablet.h4};
+			font-size: ${theme.sizeTabletPortrait.h4};
+			line-height: 0.938rem;
 		}
 
 		@media ${theme.mediaBreakpoints.mobile}
 		{
 			font-size: ${theme.sizeMobile.h4};
-			line-height: 1.375rem;
+			line-height: 0.938rem;
 		}
 	}
 
@@ -158,12 +200,28 @@ export const GlobalStyles = createGlobalStyle`
 	button,
 	div {
 		font-size: ${theme.size.body};
-		line-height: 1.938rem;
+		line-height: 1.5rem;
+
+		@media ${theme.mediaBreakpoints.tabletLandscape} {
+			font-size: ${theme.sizeTabletLandscape.body};
+			line-height: 1.125rem;
+		}
+
+		@media ${theme.mediaBreakpoints.tabletMedium} {
+			font-size: ${theme.sizeTabletMedium.body};
+			line-height: 1rem;
+		}
+
+		@media ${theme.mediaBreakpoints.tabletPortrait}
+		{
+			font-size: ${theme.sizeTabletPortrait.body};
+			line-height: 0.938rem;
+		}
 
 		@media ${theme.mediaBreakpoints.mobile}
 		{
 			font-size: ${theme.sizeMobile.body};
-			line-height: 1.75rem;
+			line-height: 0.938rem;
 		}
 	}
 
