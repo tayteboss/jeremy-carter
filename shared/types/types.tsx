@@ -46,7 +46,7 @@ type GalleryType = {
 export type ProjectTypes = {
 	client?: string;
 	description?: {};
-	gallery: GalleryType[];
+	gallery?: GalleryType[];
 	slug?: string;
 	thumbnailImage?: {
 		url?: string;

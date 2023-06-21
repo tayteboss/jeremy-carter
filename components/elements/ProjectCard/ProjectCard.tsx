@@ -26,8 +26,6 @@ const ProjectCard = (props: ProjectTypes) => {
 	const {
 		slug,
 		thumbnailImage,
-		title,
-		client
 	} = props;
 
 	return (

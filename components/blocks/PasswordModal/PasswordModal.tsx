@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { useState, ChangeEvent, FormEvent } from 'react';
+import { useState, ChangeEvent, FormEvent, useEffect, useRef } from 'react';
 import pxToRem from '../../../utils/pxToRem';
 import Cookies from 'js-cookie';
 
@@ -47,7 +47,7 @@ const Label = styled.label<StyledProps>`
 	position: relative;
 	color: ${(props) => props.$error ? 'var(--colour-red)' : 'var(--colour-black)'};
 
-	&::after {
+	/* &::after {
 		content: '';
 		position: absolute;
 		top: calc(100% + 27px);
@@ -56,11 +56,14 @@ const Label = styled.label<StyledProps>`
 		width: 1px;
 		height: 19px;
 		background: var(--colour-black);
-		display: ${(props) => props.$isFocused ? 'none' : 'block'};
+		display: none;
 
-		// use fadeIn keyframes to make the appear and disappear instantly every second with no easing
 		animation: ${fadeIn} 1s step-start infinite;
-	}
+
+		@media ${(props) => props.theme.mediaBreakpoints.tabletPortrait} {
+			display: ${(props) => props.$isFocused ? 'none' : 'block'};
+		}
+	} */
 `;
 
 const Input = styled.input`
@@ -95,6 +98,14 @@ const PasswordModal: React.FC<PasswordModalProps> = ({ authenticated, setAuthent
 		}
 	};
 
+	const inputRef = useRef<HTMLInputElement>(null);
+
+	useEffect(() => {
+	if (inputRef.current) {
+		inputRef.current.focus();
+	}
+	}, []);
+
 	return (
 		<Modal className="modal">
 			<ModalContent className="modal-content">
@@ -112,6 +123,7 @@ const PasswordModal: React.FC<PasswordModalProps> = ({ authenticated, setAuthent
 						onChange={handlePasswordChange}
 						onFocus={() => setIsFocused(true)}
 						onBlur={() => setIsFocused(false)}
+						ref={inputRef}
 					/>
 				</Form>
 			</ModalContent>

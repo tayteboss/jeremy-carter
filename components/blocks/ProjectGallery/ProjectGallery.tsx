@@ -12,6 +12,7 @@ const ProjectGalleryWrapper = styled.div`
 
 	@media ${(props) => props.theme.mediaBreakpoints.mobile} {
 		grid-column: 1 / -1;
+		padding-bottom: ${pxToRem(40)};
 	}
 `;
 
@@ -37,7 +38,7 @@ const ProjectGallery = ({ data }: Props) => {
 
 	return (
 		<ProjectGalleryWrapper>
-			{hasData && data?.gallery.map((item, i) => (
+			{hasData && data?.gallery && data?.gallery.map((item, i) => (
 				<ImageWrapper key={i}>
 					<Image
 						src={item?.image?.url}
