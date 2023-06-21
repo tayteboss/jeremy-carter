@@ -1,28 +1,31 @@
-import styled from 'styled-components';
 import Link from 'next/link';
+import styled from 'styled-components';
+import ArrowSvg from '../../svgs/ArrowSvg';
 
-const RelatedProjectsCoverWrapper = styled.div`
+const MobileRelatedProjectsCoverWrapper = styled.div`
 	position: fixed;
-	top: 0;
+	bottom: 0;
 	left: 0;
 	width: 100%;
-	height: 100vh;
 	z-index: 50;
-	display: flex;
+	background: var(--colour-white);
+	display: none;
 
 	@media ${(props) => props.theme.mediaBreakpoints.tabletPortrait} {
-		display: none;
+		display: flex;
 	}
 `;
 
 const PreviousCover = styled.div`
 	width: 50%;
-	height: 100%;
+	height: 50px;
+	position: relative;
 `;
 
 const NextCover = styled.div`
 	width: 50%;
-	height: 100%;
+	height: 50px;
+	position: relative;
 `;
 
 const LinkTag = styled.a`
@@ -32,24 +35,36 @@ const LinkTag = styled.a`
 	cursor: none;
 `;
 
+const ArrowWrapper = styled.div`
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 2;
+	mix-blend-mode: difference;
+`;
+
 type Props = {
 	nextProjectSlug: string | undefined;
 	previousProjectSlug: string | undefined;
 };
 
-const RelatedProjectsCover = (props: Props) => {
+const MobileRelatedProjectsCover = (props: Props) => {
 	const {
 		nextProjectSlug,
 		previousProjectSlug
 	} = props;
 
 	return (
-		<RelatedProjectsCoverWrapper>
+		<MobileRelatedProjectsCoverWrapper>
 			{previousProjectSlug && (
 				<PreviousCover className="previous-project-cover">
 					<Link href={`/projects/${previousProjectSlug}`} passHref>
 						<LinkTag />
 					</Link>
+					<ArrowWrapper>
+						<ArrowSvg isNext={false} />
+					</ArrowWrapper>
 				</PreviousCover>
 			)}
 			{nextProjectSlug && (
@@ -57,10 +72,13 @@ const RelatedProjectsCover = (props: Props) => {
 					<Link href={`/projects/${nextProjectSlug}`} passHref>
 						<LinkTag />
 					</Link>
+					<ArrowWrapper>
+						<ArrowSvg isNext={true} />
+					</ArrowWrapper>
 				</NextCover>
 			)}
-		</RelatedProjectsCoverWrapper>
+		</MobileRelatedProjectsCoverWrapper>
 	);
 };
 
-export default RelatedProjectsCover;
+export default MobileRelatedProjectsCover;

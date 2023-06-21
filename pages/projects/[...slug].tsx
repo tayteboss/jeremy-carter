@@ -7,6 +7,7 @@ import LayoutGrid from '../../components/common/LayoutGrid';
 import ProjectContent from '../../components/blocks/ProjectContent';
 import ProjectGallery from '../../components/blocks/ProjectGallery';
 import RelatedProjectsCover from '../../components/blocks/RelatedProjectsCover';
+import MobileRelatedProjectsCover from '../../components/blocks/MobileRelatedProjectsCover';
 
 const PageWrapper = styled.div``;
 
@@ -22,16 +23,9 @@ const Page = (props: Props) => {
 	const {
 		data,
 		siteData,
-		projects,
 		nextProject,
 		previousProject
 	} = props;
-
-	console.log('data', data);
-	console.log('siteData', siteData);
-	console.log('projects', projects);
-	console.log('nextProject', nextProject);
-	console.log('previousProject', previousProject);
 
 	return (
 	<PageWrapper>
@@ -51,6 +45,10 @@ const Page = (props: Props) => {
 				/>
 			</LayoutGrid>
 			<RelatedProjectsCover
+				nextProjectSlug={nextProject.slug}
+				previousProjectSlug={previousProject.slug}
+			/>
+			<MobileRelatedProjectsCover 
 				nextProjectSlug={nextProject.slug}
 				previousProjectSlug={previousProject.slug}
 			/>

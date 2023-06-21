@@ -29,8 +29,6 @@ const Page = (props: Props) => {
 		siteData
 	} = props;
 
-	console.log('siteData', siteData);
-
 	return (
 		<PageWrapper>
 			<NextSeo

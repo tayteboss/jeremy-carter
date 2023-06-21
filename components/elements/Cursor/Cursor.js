@@ -13,7 +13,7 @@ const CursorWrapper = styled.div`
 	display: ${(props) => (props.isOnDevice ? 'none' : 'block')};
 	mix-blend-mode: difference;
 
-	@media ${(props) => props.theme.mediaBreakpoints.mobile} {
+	@media ${(props) => props.theme.mediaBreakpoints.tabletPortrait} {
 		display: none;
 	}
 `;
