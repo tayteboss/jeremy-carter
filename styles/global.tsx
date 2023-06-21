@@ -5,6 +5,7 @@ export const GlobalStyles = createGlobalStyle`
 	:root {
 		--colour-white: ${theme.colours.white};
 		--colour-black: ${theme.colours.black};
+		--colour-red: red;
 		--font-apercu-regular: ${theme.fonts.apercuRegular};
 		--font-apercu-light: ${theme.fonts.apercuLight};
 		--transition-speed-default: ${theme.transitionSpeed.default};
@@ -283,7 +284,7 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
 	::placeholder {
-		color: currentcolor;
+		color: grey;
 		opacity: 1;
 	}
 

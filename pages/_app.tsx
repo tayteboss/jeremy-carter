@@ -10,6 +10,7 @@ import { GlobalStyles } from '../styles/global';
 import use1vh from '../hooks/use1vh';
 import { Transitions } from '../shared/types/types';
 import Cursor from '../components/elements/Cursor';
+import PasswordModal from '../components/blocks/PasswordModal';
 
 const pageTransitionVariants: Transitions = {
 	hidden: { opacity: 0, transition: { duration: 0.3 } },
@@ -28,6 +29,7 @@ const App = (props: Props) => {
 	} = props;
 
 	const [hasVisited, setHasVisited] = useState<boolean>(false);
+	const [authenticated, setAuthenticated] = useState(false);
 	const [cursorRefresh, setCursorRefresh] = useState<number>(1);
 
 	const router= useRouter();
@@ -42,14 +44,19 @@ const App = (props: Props) => {
 
 	useEffect(() => {
 		const hasCookies = Cookies.get('visited');
+		const hasAuthenticated = Cookies.get('authenticated');
 
 		if (hasCookies) {
 			setHasVisited(true);
 		}
 
+		if (hasAuthenticated) {
+			setAuthenticated(true);;
+		}
+
 		const timer = setTimeout(() => {
 			Cookies.set('visited', 'true', { expires: 1, path: '' });
-		}, 5000);
+		}, 1000);
 
 		return () => {
 			clearTimeout(timer);
@@ -60,19 +67,27 @@ const App = (props: Props) => {
 		<>
 			<GlobalStyles />
 			<ThemeProvider theme={theme}>
-				<Layout>
-					<AnimatePresence
-						mode="wait"
-						onExitComplete={() => handleExitComplete()}
-					>
-						<Component
-							{...pageProps}
-							key={router.asPath}
-							pageTransitionVariants={pageTransitionVariants}
-						/>
-					</AnimatePresence>
-				</Layout>
+				{authenticated && (
+					<Layout>
+						<AnimatePresence
+							mode="wait"
+							onExitComplete={() => handleExitComplete()}
+						>
+							<Component
+								{...pageProps}
+								key={router.asPath}
+								pageTransitionVariants={pageTransitionVariants}
+							/>
+						</AnimatePresence>
+					</Layout>
+				)}
 				<Cursor cursorRefresh={cursorRefresh} />
+				{!authenticated && (
+					<PasswordModal
+						authenticated={authenticated}
+						setAuthenticated={setAuthenticated}
+					/>
+				)}
 			</ThemeProvider>
 		</>
 	);
