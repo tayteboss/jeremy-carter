@@ -31,7 +31,6 @@ export type Transitions = {
 };
 
 export type SiteDataTypes = {
-	seoDescription: string;
 	seoTitle: string;
 	password: string;
 	informationContact: {};

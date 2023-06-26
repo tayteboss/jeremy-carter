@@ -25,7 +25,6 @@ const getSiteData = async () => {
 	const query = `
 		query Query {
 			siteInformation {
-				seoDescription
 				password
 				siteTitle
 			}

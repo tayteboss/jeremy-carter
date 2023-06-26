@@ -7,8 +7,7 @@ const Page = () => {
 	return (
 		<PageWrapper>
 			<NextSeo
-				title="Boiler"
-				description="Boiler Plate"
+				title="Jeremy Carter - 404"
 			/>
 		</PageWrapper>
 	)

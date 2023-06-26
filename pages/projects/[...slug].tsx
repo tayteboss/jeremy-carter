@@ -31,7 +31,6 @@ const Page = (props: Props) => {
 	<PageWrapper>
 		<NextSeo
 			title={`Jeremy Carter - ${data?.title}`}
-			description={siteData?.seoDescription || ''}
 		/>
 		<LayoutWrapper>
 			<LayoutGrid>

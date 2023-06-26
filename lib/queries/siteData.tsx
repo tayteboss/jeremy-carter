@@ -3,7 +3,6 @@ import { richTextFragment } from "./fragments";
 const SITE_DATA_QUERY: string = `
 	query Query {
 		siteInformation {
-			seoDescription
 			password
 			informationContact {
 				${richTextFragment}

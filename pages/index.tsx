@@ -21,7 +21,6 @@ const Page = (props: Props) => {
 	<PageWrapper>
 		<NextSeo
 			title="Jeremy Carter"
-			description={siteData?.seoDescription || ''}
 		/>
 		<ProjectList data={projects} />
 	</PageWrapper>
