@@ -2,6 +2,7 @@ import styled, { keyframes } from 'styled-components';
 import { useState, ChangeEvent, FormEvent, useEffect, useRef } from 'react';
 import pxToRem from '../../../utils/pxToRem';
 import Cookies from 'js-cookie';
+import useViewportWidth from '../../../hooks/useViewportWidth';
 
 type StyledProps = {
 	$isFocused: boolean;
@@ -60,9 +61,7 @@ const Label = styled.label<StyledProps>`
 
 		animation: ${fadeIn} 1s step-start infinite;
 
-		@media ${(props) => props.theme.mediaBreakpoints.tabletPortrait} {
-			display: ${(props) => props.$isFocused ? 'none' : 'block'};
-		}
+		display: ${(props) => props.$isFocused ? 'none' : 'block'};
 	}
 `;
 
@@ -81,6 +80,8 @@ const PasswordModal: React.FC<PasswordModalProps> = ({ authenticated, setAuthent
 	const [password, setPassword] = useState('');
 	const [isFocused, setIsFocused] = useState(false);
 	const [error, setError] = useState(false);
+
+	const viewport = useViewportWidth();
 
 	const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
 		setPassword(event.target.value);
@@ -101,10 +102,10 @@ const PasswordModal: React.FC<PasswordModalProps> = ({ authenticated, setAuthent
 	const inputRef = useRef<HTMLInputElement>(null);
 
 	useEffect(() => {
-	if (inputRef.current) {
-		inputRef.current.focus();
-	}
-	}, []);
+		if (inputRef.current && (viewport != 'mobile' || viewport != 'tabletPortrait)')) {
+			inputRef.current.focus();
+		}
+	}, [viewport]);
 
 	return (
 		<Modal className="modal">
