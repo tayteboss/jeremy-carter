@@ -3,7 +3,11 @@ import { ProjectTypes } from '../../../shared/types/types';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const ImageWrapper = styled.a`
+type StyledProps = {
+	$isHovered: boolean;
+};
+
+const ImageWrapper = styled.a<StyledProps>`
 	position: relative;
 	grid-column: span 3;
 	padding-top: 66.8%;
@@ -20,17 +24,38 @@ const ImageWrapper = styled.a`
 	@media ${(props) => props.theme.mediaBreakpoints.mobile} {
 		grid-column: span 1;
 	}
+
+	img {
+		transition: all var(--transition-speed-fast) var(--transition-ease);
+	}
+
+	img {
+		filter: ${(props) => props.$isHovered ? 'blur(1px) grayscale(100%)' : 'blur(0)  grayscale(0)'};
+	}
+
+	&:hover {
+		img {
+			filter: blur(0) grayscale(0);
+			transform: scale(1.01);
+		}
+	}
 `;
 
 const ProjectCard = (props: ProjectTypes) => {
 	const {
 		slug,
 		thumbnailImage,
+		isHovered,
+		setIsHovered
 	} = props;
 
 	return (
 		<Link href={`/projects/${slug}`} passHref>
-			<ImageWrapper>
+			<ImageWrapper
+				onMouseOver={() => setIsHovered(true)}
+				onMouseOut={() => setIsHovered(false)}
+				$isHovered={isHovered}
+			>
 				{thumbnailImage?.url && (
 					<Image
 						src={thumbnailImage.url}

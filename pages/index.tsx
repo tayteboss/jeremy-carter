@@ -20,7 +20,7 @@ const Page = (props: Props) => {
 	return (
 	<PageWrapper>
 		<NextSeo
-			title="Jeremy Carter"
+			title={siteData.siteTitle || ''}
 		/>
 		<ProjectList data={projects} />
 	</PageWrapper>

@@ -47,7 +47,7 @@ const Label = styled.label<StyledProps>`
 	position: relative;
 	color: ${(props) => props.$error ? 'var(--colour-red)' : 'var(--colour-black)'};
 
-	/* &::after {
+	&::after {
 		content: '';
 		position: absolute;
 		top: calc(100% + 27px);
@@ -63,7 +63,7 @@ const Label = styled.label<StyledProps>`
 		@media ${(props) => props.theme.mediaBreakpoints.tabletPortrait} {
 			display: ${(props) => props.$isFocused ? 'none' : 'block'};
 		}
-	} */
+	}
 `;
 
 const Input = styled.input`
@@ -115,7 +115,7 @@ const PasswordModal: React.FC<PasswordModalProps> = ({ authenticated, setAuthent
 						$isFocused={isFocused}
 						$error={error}
 					>
-						Password {error ? '- Incorrect' : ':'}
+						Password{error ? ' - Incorrect' : ':'}
 					</Label>
 					<Input
 						type="password"

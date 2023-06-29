@@ -27,6 +27,7 @@ const getSiteData = async () => {
 			siteInformation {
 				password
 				siteTitle
+				informationPageTitle
 			}
 		}
 	`;

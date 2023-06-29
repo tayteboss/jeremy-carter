@@ -33,6 +33,7 @@ const LinkTag = styled.a``;
 
 const Header = () => {
 	const siteTitle = options?.siteTitle || '';
+	const infoTitle = options?.informationPageTitle || '';
 
 	return (
 		<HeaderWrapper className="header">
@@ -43,9 +44,11 @@ const Header = () => {
 							<LinkTag>{siteTitle}</LinkTag>
 						</Link>
 					)}
-					<Link href="/information-contact" passHref>
-						<LinkTag>Information / Contact</LinkTag>
-					</Link>
+					{infoTitle && (
+						<Link href="/information" passHref>
+							<LinkTag>{infoTitle}</LinkTag>
+						</Link>
+					)}
 				</HeaderInner>
 			</LayoutWrapper>
 		</HeaderWrapper>

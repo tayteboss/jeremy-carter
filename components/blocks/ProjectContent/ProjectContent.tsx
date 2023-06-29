@@ -17,9 +17,10 @@ const ProjectContentWrapper = styled.div`
 	}
 
 	@media ${(props) => props.theme.mediaBreakpoints.tabletPortrait} {
-		top: ${pxToRem(25)};
+		top: initial;
 		grid-column: 5 / -1;
 		margin-bottom: ${pxToRem(20)};
+		position: relative;
 	}
 
 	@media ${(props) => props.theme.mediaBreakpoints.mobile} {

@@ -7,7 +7,7 @@ const Page = () => {
 	return (
 		<PageWrapper>
 			<NextSeo
-				title="Jeremy Carter - 404"
+				title={'404 - Page Not Found'}
 			/>
 		</PageWrapper>
 	)

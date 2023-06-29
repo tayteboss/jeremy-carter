@@ -58,6 +58,8 @@ const App = (props: Props) => {
 			Cookies.set('visited', 'true', { expires: 1, path: '' });
 		}, 1000);
 
+		setCursorRefresh(cursorRefresh + 1);
+
 		return () => {
 			clearTimeout(timer);
 		}

@@ -32,7 +32,7 @@ const Page = (props: Props) => {
 	return (
 		<PageWrapper>
 			<NextSeo
-				title="Jeremy Carter - Information / Contact"
+				title={`${siteData?.siteTitle} - ${siteData?.informationPageTitle}}`}
 			/>
 			<LayoutWrapper>
 				<LayoutGrid>

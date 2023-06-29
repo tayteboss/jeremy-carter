@@ -31,9 +31,10 @@ export type Transitions = {
 };
 
 export type SiteDataTypes = {
-	seoTitle: string;
+	siteTitle: string;
 	password: string;
 	informationContact: {};
+	informationPageTitle: {};
 };
 
 type GalleryType = {
@@ -51,4 +52,6 @@ export type ProjectTypes = {
 		url?: string;
 	};
 	title?: string;
+	setIsHovered: (isHovered: boolean) => void;
+	isHovered: boolean;
 }

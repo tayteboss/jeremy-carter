@@ -7,6 +7,7 @@ const SITE_DATA_QUERY: string = `
 			informationContact {
 				${richTextFragment}
 			}
+			informationPageTitle
 			siteTitle
 		}
 	}

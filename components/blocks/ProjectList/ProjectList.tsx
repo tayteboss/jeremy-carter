@@ -3,6 +3,7 @@ import { ProjectTypes } from '../../../shared/types/types';
 import LayoutWrapper from '../../common/LayoutWrapper';
 import LayoutGrid from '../../common/LayoutGrid';
 import ProjectCard from '../../elements/ProjectCard';
+import { useState } from 'react';
 
 const ProjectListWrapper = styled.section``;
 
@@ -12,6 +13,8 @@ type Props = {
 
 const ProjectList = ({ data }: Props) => {
 	const hasData = data && data.length > 0;
+
+	const [isHovered, setIsHovered] = useState(false);
 
 	return (
 		<ProjectListWrapper>
@@ -24,6 +27,8 @@ const ProjectList = ({ data }: Props) => {
 							slug={item?.slug}
 							thumbnailImage={item?.thumbnailImage}
 							title={item?.title}
+							isHovered={isHovered}
+							setIsHovered={setIsHovered}
 						/>
 					))}
 				</LayoutGrid>
