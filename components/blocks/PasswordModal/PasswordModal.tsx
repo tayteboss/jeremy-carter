@@ -102,8 +102,10 @@ const PasswordModal: React.FC<PasswordModalProps> = ({ authenticated, setAuthent
 	const inputRef = useRef<HTMLInputElement>(null);
 
 	useEffect(() => {
-		if (inputRef.current && (viewport != 'mobile' || viewport != 'tabletPortrait)')) {
-			inputRef.current.focus();
+		if (inputRef.current && viewport) {
+			if (viewport !== 'mobile' && viewport !== 'tabletPortrait') {
+				inputRef.current.focus();
+			}
 		}
 	}, [viewport]);
 
