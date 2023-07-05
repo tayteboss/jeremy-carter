@@ -53,7 +53,7 @@ export const theme = {
 		tabletLandscape: '(max-width: 1200px)',
 		tabletMedium: '(max-width: 1000px)',
 		tabletPortrait: '(max-width: 600px)',
-		mobile: '(max-width: 380px)',
+		mobile: '(max-width: 550px)',
 	},
 	layout: {
 		innerWrapper: '1600px',

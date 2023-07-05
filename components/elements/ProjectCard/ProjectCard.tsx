@@ -36,7 +36,6 @@ const ImageWrapper = styled.a<StyledProps>`
 	&:hover {
 		img {
 			filter: blur(0) grayscale(0);
-			transform: scale(1.01);
 		}
 	}
 `;
