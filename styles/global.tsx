@@ -236,6 +236,36 @@ export const GlobalStyles = createGlobalStyle`
 	.content {
 		& > * {
 			font-family: var(--font-apercu-light);
+
+			&:not(:last-child) {
+				margin-bottom: 22px;
+
+				@media ${theme.mediaBreakpoints.tabletLandscape} {
+					margin-bottom: 17px;
+				}
+
+				@media ${theme.mediaBreakpoints.tabletMedium} {
+					margin-bottom: 15px;
+				}
+
+				@media ${theme.mediaBreakpoints.tabletPortrait}
+				{
+					margin-bottom: 15px;
+				}
+
+				@media ${theme.mediaBreakpoints.mobile}
+				{
+					margin-bottom: 15px;
+				}
+			}
+		}
+
+		a {
+			text-decoration: underline;
+
+			&:hover {
+				font-style: italic;
+			}
 		}
 	}
 

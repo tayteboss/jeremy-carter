@@ -4,11 +4,13 @@ import Link from 'next/link';
 const RelatedProjectsCoverWrapper = styled.div`
 	position: fixed;
 	top: 0;
-	left: 0;
-	width: 100%;
+	right: 0;
+	width: 50vw;
 	height: 100vh;
 	z-index: 50;
 	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
 
 	@media ${(props) => props.theme.mediaBreakpoints.tabletPortrait} {
 		display: none;
