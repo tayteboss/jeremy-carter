@@ -8,8 +8,6 @@ const ProjectContentWrapper = styled.div`
 	top: ${pxToRem(55)};
 	left: 0;
 	z-index: 10;
-	overflow: auto;
-	height: 100vh;
 
 	@media ${(props) => props.theme.mediaBreakpoints.tabletLandscape} {
 		top: ${pxToRem(55)};

@@ -261,10 +261,31 @@ export const GlobalStyles = createGlobalStyle`
 		}
 
 		a {
-			text-decoration: underline;
+			position: relative;
+			text-decoration: none;
+			color: var(--colour-black);
 
-			&:hover {
-				font-style: italic;
+			transition: all var(--transition-speed-default) var(--transition-ease);
+
+			&::before {
+				content: '';
+				position: absolute;
+				bottom: -1px;
+				left: -1px;
+				height: calc(100% + 2px);
+				width: 0;
+				background: var(--colour-black);
+				z-index: -1;
+
+				transition: all var(--transition-speed-default) var(--transition-ease);
+			}
+		}
+
+		a:hover {
+			color: var(--colour-white);
+
+			&::before {
+				width: calc(100% + 2px);
 			}
 		}
 	}
