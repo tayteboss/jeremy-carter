@@ -28,6 +28,10 @@ const ModalContent = styled.div`
 
 const Form = styled.form`
 	text-align: center;
+
+	input {
+		padding: 6px 12px;
+	}
 `;
 
 const fadeIn = keyframes`
@@ -67,6 +71,7 @@ const Label = styled.label<StyledProps>`
 
 const Input = styled.input`
 	text-align: center;
+	background: var(--colour-green);
 `;
 
 const options = require('../../../json/siteData.json');

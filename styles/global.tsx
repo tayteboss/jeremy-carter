@@ -5,6 +5,7 @@ export const GlobalStyles = createGlobalStyle`
 	:root {
 		--colour-white: ${theme.colours.white};
 		--colour-black: ${theme.colours.black};
+		--colour-green: ${theme.colours.green};
 		--colour-red: red;
 		--font-apercu-regular: ${theme.fonts.apercuRegular};
 		--font-apercu-light: ${theme.fonts.apercuLight};
@@ -262,7 +263,6 @@ export const GlobalStyles = createGlobalStyle`
 
 		a {
 			position: relative;
-			text-decoration: none;
 			color: var(--colour-black);
 
 			transition: all var(--transition-speed-default) var(--transition-ease);
@@ -274,10 +274,20 @@ export const GlobalStyles = createGlobalStyle`
 				left: -1px;
 				height: calc(100% + 2px);
 				width: 0;
-				background: var(--colour-black);
+				background: var(--colour-green);
 				z-index: -1;
 
 				transition: all var(--transition-speed-default) var(--transition-ease);
+			}
+
+			&::after {
+				content: '';
+				position: absolute;
+				bottom: -1px;
+				left: -1px;
+				height: 2px;
+				width: calc(100% + 2px);
+				background: var(--colour-green);
 			}
 		}
 

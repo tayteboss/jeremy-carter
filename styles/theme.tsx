@@ -2,6 +2,7 @@ export const theme = {
 	colours: {
 		black: '#000000',
 		white: '#FFFFFF',
+		green: '#60F568'
 	},
 	fonts: {
 		apercuRegular: 'apercu-regular',
@@ -50,7 +51,7 @@ export const theme = {
 	mediaBreakpoints: {
 		desktop: '(min-width: 1600px)',
 		laptop: '(max-width: 1400px)',
-		tabletLandscape: '(max-width: 1200px)',
+		tabletLandscape: '(max-width: 1400px)',
 		tabletMedium: '(max-width: 1000px)',
 		tabletPortrait: '(max-width: 600px)',
 		mobile: '(max-width: 550px)',
