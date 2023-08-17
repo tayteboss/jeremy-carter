@@ -283,9 +283,9 @@ export const GlobalStyles = createGlobalStyle`
 			&::after {
 				content: '';
 				position: absolute;
-				bottom: -1px;
+				bottom: -2px;
 				left: -1px;
-				height: 2px;
+				height: 1px;
 				width: calc(100% + 2px);
 				background: var(--colour-green);
 			}
